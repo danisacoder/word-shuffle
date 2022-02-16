@@ -20,3 +20,11 @@ body {
   display: flex;
   flex-direction: row;
 }
+
+#word-display {
+  border: 1px red solid;
+  width: 200px;
+  /* height: 200px; */
+  display: flex;
+  justify-content: center;
+}

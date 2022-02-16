@@ -82,16 +82,24 @@ function renderFormat() {
 
     if (formatList.value === "1") {
         console.log('format is Adjective Noun')
+        let format = ["adjective", "noun"]
+        let text = document.createTextNode(format.join(" "))
+        console.log(text)
+        let p = document.createElement('p')
+        p.appendChild(text)
+        wordDisplay.appendChild(p) 
 
-        let word1 = document.createElement('p')
-        let word2 = document.createElement('p')
-        let word1Text = document.createTextNode('test1')
-        let word2Text = document.createTextNode('test2')
-        word1.appendChild(word1Text)
-        word2.appendChild(word2Text)
-        word1.id = 'word-1'
-        word2.id = 'word-2'
-        wordDisplay.appendChild(word1, word2)
+
+        // let word1 = document.createElement('p')
+        // let word2 = document.createElement('p')
+        // let word1Text = document.createTextNode('Adjective')
+        // let word2Text = document.createTextNode('Noun')
+        // word1.appendChild(word1Text)
+        // word2.appendChild(word2Text)
+        // word1.class = 'adjective'
+        // word2.class = 'noun'
+        // wordDisplay.appendChild(word1)
+        // wordDisplay.appendChild(word2)
     } 
     // else if (formatList.value === "2") {
     //     let the = document.createElement('p').id('the')
@@ -108,21 +116,26 @@ renderFormat()
 
 shuffleButton.addEventListener("click", function() {
     let filteredWords = wordBank.filter(checkTags)
+    let wordsArray = []
 
     // function checkTags(word) {
-    //    return word.tags.includes(`${genreTag1}`)
+    //    return word.tags.includes(`${genreTag1}`) 
     // }
 
     // get a list of all words based on format
 
-    for (let i=0; i<filteredWords.length; i++) {
-        word1.innerHTML = `${filteredWords[randomNum(filteredWords)].word}`
+    if (formatList.value === "1") {
+        
     }
 
-    for (let i=0; i<filteredWords.length; i++) {
-        word2.innerHTML = `${filteredWords[randomNum(filteredWords)].word}`
-    }
+    
+//     word1.innerHTML = `${filteredWords[randomNum(filteredWords)].word}`
+    
 
-}) 
+//     for (let i=0; i<filteredWords.length; i++) {
+//         word2.innerHTML = `${filteredWords[randomNum(filteredWords)].word}`
+//     }
+
+// }) 
 
 
