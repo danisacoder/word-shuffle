@@ -1,36 +1,51 @@
-const wordBank = [
+let wordBank = [
     {
-        word: "amber",
+        word: "The",
+        type: "article",
+        tags: ["indie", "folk", "metal"]
+    },
+    // {
+    //     word: "a",
+    //     type: "article",
+    //     tags: ["indie", "folk", "metal"]
+    // },
+    // {
+    //     word: "an",
+    //     type: "article",
+    //     tags: ["indie", "folk", "metal"]
+    // },
+    {
+        word: "Amber",
         type: "adjective", 
         tags: ["indie", "folk", "metal"]
     },
     {
-        word: "quiet",
+        word: "Quiet",
         type: "adjective",
         tags: ["indie", "folk", "metal"]
     },
     {
-        word: "outer",
+        word: "Outer",
         type: "adjective",
         tags: ["indie", "folk", "metal"]
     },
     {
-        word: "vale",
+        word: "Vale",
         type: "noun",
         tags: ["indie, folk", "metal"]
     },
     {
-        word: "disease",
+        word: "Disease",
         type: "noun",
         tags: ["metal"]
     },
     {
-        word: "jaw",
+        word: "Fist",
         type: "noun",
         tags: ["metal", "indie", "folk"]
     },
     {
-        word: "fire",
+        word: "Fire",
         type: "noun",
         tags: ["metal", "indie", "folk", "rock"]
     }
@@ -43,7 +58,7 @@ let wordDisplay = document.getElementById('word-display')
 
 
 
-function randomNum(array) {
+function randomIndex(array) {
     let result = Math.floor(Math.random() * array.length)
     return result
 }
@@ -51,91 +66,135 @@ function randomNum(array) {
 
 let genreList = document.getElementById('genre')
 let genre = genreList.value
-let genreId = ''
+// let genreId = ''
 
 genreList.addEventListener("change", function() {
     genreTranslate()
+    renderPage()
 }) 
+
+
 
 function genreTranslate() {
     genre = genreList.value
     console.log(genre)
-
-    if (genre === "1") {
-        genreTag1 = 'indie'
-    } else if (genre === "2") {
-        genreTag1 = 'metal'
-    } 
 }
-
-genreTranslate()
 
 let formatList = document.getElementById('format')
 
 formatList.addEventListener("change", function() {
-    renderFormat()
-    // console.log('butts')
+    setFormat()
+    renderPage()
 })
+
+let formatArray = []
+let formatWordArray = []
+
+function setFormat() {
+    formatArray = []
+    formatWordArray = []
+    console.log('Setting format!')
+    if (formatList.value === "1") {
+
+
+        formatArray = [
+            { 
+                word: "Adjective",
+                type: "adjective"
+            },
+            {
+                word: "Noun",
+                type: "noun",
+                plural: false
+            }
+        ]
+    } else if (formatList.value === "2") {
+        formatArray = [
+            {
+                word: "The",
+                type: "article"
+            },
+            {
+                word:  "Noun",
+                type:  "noun",
+                plural:  false
+            },
+            {
+                word:  "Nouns",
+                type: "noun",
+                plural:  true
+            }
+        ]
+    }
+}
+
+function renderPage() {
+    if (genreList.value === "0") {
+        renderFormat()
+    } else {
+        renderFormat()
+        renderWords()
+    }
+}
 
 function renderFormat() {
     wordDisplay.innerHTML = ''
+    formatWordArray = []
+    console.log("Rendering format!")
 
-    if (formatList.value === "1") {
-        console.log('format is Adjective Noun')
-        let format = ["adjective", "noun"]
-        let text = document.createTextNode(format.join(" "))
-        console.log(text)
-        let p = document.createElement('p')
-        p.appendChild(text)
-        wordDisplay.appendChild(p) 
+    for (let i=0; i<formatArray.length; i++) {
+        formatWordArray.push(formatArray[i].word)
 
+    }
+    console.log(formatWordArray)
 
-        // let word1 = document.createElement('p')
-        // let word2 = document.createElement('p')
-        // let word1Text = document.createTextNode('Adjective')
-        // let word2Text = document.createTextNode('Noun')
-        // word1.appendChild(word1Text)
-        // word2.appendChild(word2Text)
-        // word1.class = 'adjective'
-        // word2.class = 'noun'
-        // wordDisplay.appendChild(word1)
-        // wordDisplay.appendChild(word2)
-    } 
-    // else if (formatList.value === "2") {
-    //     let the = document.createElement('p').id('the')
-    //     let word1 = document.createElement('p').id('word-1')
-    //     let word2 = document.createElement('p').id('word-2')
-    //     console.log('format is The Noun Nouns')
-    // }
+    let formatText = document.createTextNode(formatWordArray.join(" "))
+    wordDisplay.appendChild(formatText)
+}
+
+// this DOES work to filter the wordBank for a particular, predefined word type. But I want it to happen on the fly without setting these up with filter. So how do I do that?
+
+// let adjectiveArray = wordBank.filter(getAdjectives)
+
+// function getAdjectives(wordEntry, type) {
+//     return wordEntry.type === 'adjective'
+// }
+
+// console.log(adjectiveArray)
+
+function filterWords(wordType) {
+    console.log('Filtering words!') 
+
+    let filteredArray = []
+
+    for (let i=0; i<wordBank.length; i++) {
+        if (wordBank[i].type === wordType) {
+            filteredArray.push(wordBank[i])
+        }
+    }
+
+    return filteredArray
 
 }
 
-renderFormat()
+function renderWords() {
+    console.log('Rendering words!')
 
-// console.log(wordBank[1].word) 
+    let renderArray = []
 
-shuffleButton.addEventListener("click", function() {
-    let filteredWords = wordBank.filter(checkTags)
-    let wordsArray = []
+    for (let i=0; i<formatArray.length; i++) {
+        let filteredArray = (filterWords(formatArray[i].type))
+        let randomWord = filteredArray[`${randomIndex(filteredArray)}`].word
 
-    // function checkTags(word) {
-    //    return word.tags.includes(`${genreTag1}`) 
-    // }
-
-    // get a list of all words based on format
-
-    if (formatList.value === "1") {
-        
+        renderArray.push(randomWord)
     }
 
-    
-//     word1.innerHTML = `${filteredWords[randomNum(filteredWords)].word}`
-    
+    console.log(renderArray)
 
-//     for (let i=0; i<filteredWords.length; i++) {
-//         word2.innerHTML = `${filteredWords[randomNum(filteredWords)].word}`
-//     }
+}
 
-// }) 
+
+
+
 
 

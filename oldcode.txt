@@ -1,0 +1,83 @@
+        // let word1 = document.createElement('p')
+        // let word2 = document.createElement('p')
+        // let word1Text = document.createTextNode('Adjective')
+        // let word2Text = document.createTextNode('Noun')
+        // word1.appendChild(word1Text)
+        // word2.appendChild(word2Text)
+        // word1.class = 'adjective'
+        // word2.class = 'noun'
+        // wordDisplay.appendChild(word1)
+        // wordDisplay.appendChild(word2)
+
+        ---
+
+              let the = document.createElement('p').id('the')
+        let word1 = document.createElement('p').id('word-1')
+        let word2 = document.createElement('p').id('word-2')
+        console.log('format is The Noun Nouns')
+
+        ---
+
+        // console.log(wordBank[1].word) 
+
+// shuffleButton.addEventListener("click", function() {
+//     let filteredWords = wordBank.filter(checkTags)
+//     let wordsArray = []
+
+//     // function checkTags(word) {
+//     //    return word.tags.includes(`${genreTag1}`) 
+//     // }
+
+//     // 1. 
+//     // 2. 
+
+//     if (formatList.value === "1") {
+        
+//     }
+
+    
+//     word1.innerHTML = `${filteredWords[randomNum(filteredWords)].word}`
+    
+
+//     for (let i=0; i<filteredWords.length; i++) {
+//         word2.innerHTML = `${filteredWords[randomNum(filteredWords)].word}`
+//     }
+
+// }) 
+
+---
+
+//     if (genreList.value === "1") {
+//         genreTag1 = 'indie'
+//     } else if (genreList.value === "2") {
+//         genreTag1 = 'metal'
+//     } 
+
+---
+
+ // Create a new array of random words which is the right length and format to match the Format array
+
+    // Create array to hold results
+    // let appropriateArray = []
+    // let randomWordIndex = randomIndex(wordBank)
+    // let randomWord = wordBank[randomWordIndex].word
+
+    // Check word types!
+
+    ---
+
+
+
+    // for (let i=0; i<formatWordArray.length; i++) {
+        
+        // if (format[i].type === "adjective") {
+        //     console.log(`Word ${[i]} is an adjective!`)
+
+        //     filterType(wordType)
+            
+
+        //     // console.log(filteredWords)
+
+        // } else if (format[i].type === "noun")  {
+            
+        // }
