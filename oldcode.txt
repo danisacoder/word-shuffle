@@ -81,3 +81,74 @@
         // } else if (format[i].type === "noun")  {
             
         // }
+
+        ---
+
+// this DOES work to filter the wordBank for a particular, predefined word type. But I want it to happen on the fly without setting these up with filter. So how do I do that?
+
+// let adjectiveArray = wordBank.filter(getAdjectives)
+
+// function getAdjectives(wordEntry, type) {
+//     return wordEntry.type === 'adjective'
+// }
+
+// console.log(adjectiveArray)
+
+---
+
+
+        // let hasAllTags = tagsArray.every(isIncluded)
+
+        // function isIncluded(item) {
+        //     console.log(item)
+        //     return (`${typeArray[i].tags}`).includes(item)
+        // }
+
+
+        // for (let i=0; i<typeArray.length; i++) {
+            
+        //     if ((typeArray[i].tags).includes(tagsArray)) {
+        //             taggedArray.push(typeArray[i])
+        //         }
+            
+        //     }
+    
+        //     console.log(taggedArray)
+
+---
+
+
+   
+        // if (hasAllTags) {
+        //     renderArray.push(typeArray[i])
+        // }
+
+        // console.log(renderArray)
+
+
+    //     let randomWord = typeArray[`${Math.floor(Math.random * typeArray.length)}`]
+
+    //     console.log(randomWord)
+
+    //     if (renderArray.includes(randomWord)) {
+    //         randomWord = typeArray[`${randomEntry(typeArray)}`].word  
+    //     }
+
+    //     renderArray.push(randomWord)
+    // }
+
+    // let bandText = document.createTextNode(renderArray.join(" "))
+
+    // wordDisplay.appendChild(bandText)
+
+
+
+
+
+
+
+
+
+
+
+

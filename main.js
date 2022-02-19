@@ -32,7 +32,7 @@ let wordBank = [
     {
         word: "Vale",
         type: "noun",
-        tags: ["indie, folk", "metal"]
+        tags: ["indie", "folk", "metal"]
     },
     {
         word: "Disease",
@@ -42,7 +42,7 @@ let wordBank = [
     {
         word: "Fist",
         type: "noun",
-        tags: ["metal", "indie", "folk"]
+        tags: ["metal", "rock"]
     },
     {
         word: "Fire",
@@ -58,26 +58,27 @@ let wordDisplay = document.getElementById('word-display')
 
 
 
-function randomIndex(array) {
+function randomEntry(array) {
     let result = Math.floor(Math.random() * array.length)
     return result
 }
 
 
-let genreList = document.getElementById('genre')
-let genre = genreList.value
-// let genreId = ''
+let tagSelect = document.getElementById('genre')
+let tagsArray = []
+setTags()
 
-genreList.addEventListener("change", function() {
-    genreTranslate()
+tagSelect.addEventListener("change", function() {
+    setTags()
     renderPage()
 }) 
 
 
 
-function genreTranslate() {
-    genre = genreList.value
-    console.log(genre)
+function setTags() {
+    tagsArray = []
+    tagsArray.push(tagSelect.value)
+    console.log(tagsArray)
 }
 
 let formatList = document.getElementById('format')
@@ -95,7 +96,6 @@ function setFormat() {
     formatWordArray = []
     console.log('Setting format!')
     if (formatList.value === "1") {
-
 
         formatArray = [
             { 
@@ -129,7 +129,7 @@ function setFormat() {
 }
 
 function renderPage() {
-    if (genreList.value === "0") {
+    if (tagSelect.value === "none") {
         renderFormat()
     } else {
         renderFormat()
@@ -146,23 +146,34 @@ function renderFormat() {
         formatWordArray.push(formatArray[i].word)
 
     }
+
     console.log(formatWordArray)
 
     let formatText = document.createTextNode(formatWordArray.join(" "))
     wordDisplay.appendChild(formatText)
 }
 
-// this DOES work to filter the wordBank for a particular, predefined word type. But I want it to happen on the fly without setting these up with filter. So how do I do that?
 
-// let adjectiveArray = wordBank.filter(getAdjectives)
 
-// function getAdjectives(wordEntry, type) {
-//     return wordEntry.type === 'adjective'
+
+// function hasTag(wordEntry) {
+//     console.log(wordEntry.tags)
+//     return ((wordEntry.tags).includes(`${tagsArray[0]}`))
+//     // return tagsArray.every()
 // }
 
-// console.log(adjectiveArray)
 
-function filterWords(wordType) {
+
+// The test is:
+// is this 
+
+// function hasTags(wordEntry) {
+//     return ((wordEntry.tags).every(isIncluded))
+// } 
+
+// let result = wordEntry.tags
+
+function filterType(wordType) {
     console.log('Filtering words!') 
 
     let filteredArray = []
@@ -174,27 +185,80 @@ function filterWords(wordType) {
     }
 
     return filteredArray
-
+    
 }
+
+// This does a lot of heavy lifting: filtering down the total wordBank to appropriate words for each word type in the format, filtering down again by included tags, randomly selecting one of the remaining words, pushing that word into an array, and rendering the final array once all of the words have been picked
 
 function renderWords() {
     console.log('Rendering words!')
 
     let renderArray = []
 
-    for (let i=0; i<formatArray.length; i++) {
-        let filteredArray = (filterWords(formatArray[i].type))
-        let randomWord = filteredArray[`${randomIndex(filteredArray)}`].word
+    wordDisplay.innerHTML = ''
 
-        renderArray.push(randomWord)
+    // this for loop iterates over the FORMAT, not the WORDBANK
+    
+    for (let i=0; i<formatArray.length; i++) {
+        
+        // this creates an array of words from the wordBank with the type (adjective, noun, etc.) that matches the current (i) word in the format array (Adjective Noun, The Noun Nouns, etc.) and sets it as the value for the typeArray variable
+
+        let typeArray = (filterType(`${formatArray[i].type}`))
+        
+        console.log(typeArray)
+
+        let randomizableArray = []
+
+        for (let i=0; i<typeArray.length; i++) {
+
+            // creates a variable typeArrayItemTags to list out the tags for the current entry in the typeArray
+
+            let currentWord = typeArray[i]
+            let currentItemTags = currentWord.tags
+            
+
+            console.log(currentItemTags)
+
+            const tagsContained = tagsArray.every(checkTags)
+
+            function checkTags(wordEntry) {
+                return currentItemTags.includes(wordEntry)
+            }
+
+            console.log(tagsContained)
+
+            const notPresent = (randomizableArray.includes(currentWord) != true)
+
+            console.log(notPresent)
+
+            if (tagsContained && notPresent) {
+                randomizableArray.push(typeArray[i])
+            } 
+
+        }
+
+        console.log(randomizableArray) 
+
+        console.log(randomizableArray[randomEntry(randomizableArray)].word)
+
+        renderArray.push(randomizableArray[randomEntry(randomizableArray)].word)
+
+        console.log(renderArray) 
+
     }
 
-    console.log(renderArray)
+    let renderArayText = document.createTextNode(renderArray.join(" "))
+    wordDisplay.appendChild(renderArayText)
 
-}
+} 
+
+shuffleButton.addEventListener('click', renderWords)
 
 
 
 
 
 
+
+
+     
