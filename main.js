@@ -1,160 +1,150 @@
 let wordBank = [
-    {
-        word: "The",
-        type: "article",
-        tags: ["indie", "folk", "metal"]
-    },
-    // {
-    //     word: "a",
-    //     type: "article",
-    //     tags: ["indie", "folk", "metal"]
-    // },
-    // {
-    //     word: "an",
-    //     type: "article",
-    //     tags: ["indie", "folk", "metal"]
-    // },
-    {
-        word: "Amber",
-        type: "adjective", 
-        tags: ["indie", "folk", "metal"]
-    },
-    {
-        word: "Quiet",
-        type: "adjective",
-        tags: ["indie", "folk", "metal"]
-    },
-    {
-        word: "Outer",
-        type: "adjective",
-        tags: ["indie", "folk", "metal"]
-    },
-    {
-        word: "Vale",
-        type: "noun",
-        tags: ["indie", "folk", "metal"]
-    },
-    {
-        word: "Disease",
-        type: "noun",
-        tags: ["metal"]
-    },
-    {
-        word: "Fist",
-        type: "noun",
-        tags: ["metal", "rock"]
-    },
-    {
-        word: "Fire",
-        type: "noun",
-        tags: ["metal", "indie", "folk", "rock"]
-    }
-]
+  {
+    word: "The",
+    type: "article",
+    tags: ["indie", "folk", "metal"],
+  },
+  // {
+  //     word: "a",
+  //     type: "article",
+  //     tags: ["indie", "folk", "metal"]
+  // },
+  // {
+  //     word: "an",
+  //     type: "article",
+  //     tags: ["indie", "folk", "metal"]
+  // },
+  {
+    word: "Amber",
+    type: "adjective",
+    tags: ["indie", "folk", "metal"],
+  },
+  {
+    word: "Quiet",
+    type: "adjective",
+    tags: ["indie", "folk", "metal"],
+  },
+  {
+    word: "Outer",
+    type: "adjective",
+    tags: ["indie", "folk", "metal"],
+  },
+  {
+    word: "Vale",
+    type: "noun",
+    tags: ["indie", "folk", "metal"],
+  },
+  {
+    word: "Disease",
+    type: "noun",
+    tags: ["metal"],
+  },
+  {
+    word: "Fist",
+    type: "noun",
+    tags: ["metal", "rock"],
+  },
+  {
+    word: "Fire",
+    type: "noun",
+    tags: ["metal", "indie", "folk", "rock"],
+  },
+];
 
-let word1 = document.getElementById('word-1')
-let word2 = document.getElementById('word-2')
-let shuffleButton = document.getElementById('shuffle-button')
-let wordDisplay = document.getElementById('word-display')
-
-
+let word1 = document.getElementById("word-1");
+let word2 = document.getElementById("word-2");
+let shuffleButton = document.getElementById("shuffle-button");
+let wordDisplay = document.getElementById("word-display");
 
 function randomEntry(array) {
-    let result = Math.floor(Math.random() * array.length)
-    return result
+  let result = Math.floor(Math.random() * array.length);
+  return result;
 }
 
+let tagSelect = document.getElementById("genre");
+let tagsArray = [];
+setTags();
 
-let tagSelect = document.getElementById('genre')
-let tagsArray = []
-setTags()
-
-tagSelect.addEventListener("change", function() {
-    setTags()
-    renderPage()
-}) 
-
-
+tagSelect.addEventListener("change", function () {
+  setTags();
+  renderPage();
+});
 
 function setTags() {
-    tagsArray = []
-    tagsArray.push(tagSelect.value)
-    console.log(tagsArray)
+  tagsArray = [];
+  tagsArray.push(tagSelect.value);
+  console.log(tagsArray);
 }
 
-let formatList = document.getElementById('format')
+let formatList = document.getElementById("format");
 
-formatList.addEventListener("change", function() {
-    setFormat()
-    renderPage()
-})
+formatList.addEventListener("change", function () {
+  setFormat();
+  renderPage();
+});
 
-let formatArray = []
-let formatWordArray = []
+let formatArray = [];
+let formatWordArray = [];
 
 function setFormat() {
-    formatArray = []
-    formatWordArray = []
-    console.log('Setting format!')
-    if (formatList.value === "1") {
-
-        formatArray = [
-            { 
-                word: "Adjective",
-                type: "adjective"
-            },
-            {
-                word: "Noun",
-                type: "noun",
-                plural: false
-            }
-        ]
-    } else if (formatList.value === "2") {
-        formatArray = [
-            {
-                word: "The",
-                type: "article"
-            },
-            {
-                word:  "Noun",
-                type:  "noun",
-                plural:  false
-            },
-            {
-                word:  "Nouns",
-                type: "noun",
-                plural:  true
-            }
-        ]
-    }
+  formatArray = [];
+  formatWordArray = [];
+  console.log("Setting format!");
+  if (formatList.value === "1") {
+    formatArray = [
+      {
+        word: "Adjective",
+        type: "adjective",
+      },
+      {
+        word: "Noun",
+        type: "noun",
+        plural: false,
+      },
+    ];
+  } else if (formatList.value === "2") {
+    formatArray = [
+      {
+        word: "The",
+        type: "article",
+      },
+      {
+        word: "Noun",
+        type: "noun",
+        plural: false,
+      },
+      {
+        word: "Nouns",
+        type: "noun",
+        plural: true,
+      },
+    ];
+  }
 }
 
 function renderPage() {
-    if (tagSelect.value === "none") {
-        renderFormat()
-    } else {
-        renderFormat()
-        renderWords()
-    }
+  if (tagSelect.value === "none") {
+    renderFormat();
+  } else {
+    renderFormat();
+    renderWords();
+  }
 }
 
 function renderFormat() {
-    wordDisplay.innerHTML = ''
-    formatWordArray = []
-    console.log("Rendering format!")
+  wordDisplay.innerHTML = "";
+  formatWordArray = [];
+  console.log("Rendering format!");
 
-    for (let i=0; i<formatArray.length; i++) {
-        formatWordArray.push(formatArray[i].word)
+  for (let i = 0; i < formatArray.length; i++) {
+    formatWordArray.push(formatArray[i].word);
+  }
 
-    }
+  console.log(formatWordArray);
 
-    console.log(formatWordArray)
-
-    let formatText = document.createTextNode(formatWordArray.join(" "))
-    wordDisplay.appendChild(formatText)
+  let formatText = document.createTextNode(formatWordArray.join(" "));
+  wordDisplay.appendChild(formatText);
 }
-
-
-
 
 // function hasTag(wordEntry) {
 //     console.log(wordEntry.tags)
@@ -162,103 +152,107 @@ function renderFormat() {
 //     // return tagsArray.every()
 // }
 
-
-
 // The test is:
-// is this 
+// is this
 
 // function hasTags(wordEntry) {
 //     return ((wordEntry.tags).every(isIncluded))
-// } 
+// }
 
 // let result = wordEntry.tags
 
 function filterType(wordType) {
-    console.log('Filtering words!') 
+  console.log("Filtering words!");
 
-    let filteredArray = []
+  let filteredArray = [];
 
-    for (let i=0; i<wordBank.length; i++) {
-        if (wordBank[i].type === wordType) {
-            filteredArray.push(wordBank[i])
-        }
+  for (let i = 0; i < wordBank.length; i++) {
+    if (wordBank[i].type === wordType) {
+      filteredArray.push(wordBank[i]);
     }
+  }
 
-    return filteredArray
-    
+  return filteredArray;
 }
 
 // This does a lot of heavy lifting: filtering down the total wordBank to appropriate words for each word type in the format, filtering down again by included tags, randomly selecting one of the remaining words, pushing that word into an array, and rendering the final array once all of the words have been picked
 
+let renderArrayHistory = [];
+
 function renderWords() {
-    console.log('Rendering words!')
+  console.log("Rendering words!");
 
-    let renderArray = []
+  let renderArray = [];
 
-    wordDisplay.innerHTML = ''
+  wordDisplay.innerHTML = "";
 
-    // this for loop iterates over the FORMAT, not the WORDBANK
-    
-    for (let i=0; i<formatArray.length; i++) {
-        
-        // this creates an array of words from the wordBank with the type (adjective, noun, etc.) that matches the current (i) word in the format array (Adjective Noun, The Noun Nouns, etc.) and sets it as the value for the typeArray variable
+  // this for loop iterates over the FORMAT, not the WORDBANK
 
-        let typeArray = (filterType(`${formatArray[i].type}`))
-        
-        console.log(typeArray)
+  for (let i = 0; i < formatArray.length; i++) {
+    // this creates an array of words from the wordBank with the type (adjective, noun, etc.) that matches the current (i) word in the format array (Adjective Noun, The Noun Nouns, etc.) and sets it as the value for the typeArray variable
 
-        let randomizableArray = []
+    let typeArray = filterType(`${formatArray[i].type}`);
 
-        for (let i=0; i<typeArray.length; i++) {
+    console.log(typeArray);
 
-            // creates a variable typeArrayItemTags to list out the tags for the current entry in the typeArray
+    let randomizableArray = [];
 
-            let currentWord = typeArray[i]
-            let currentItemTags = currentWord.tags
-            
+    // this whole function sets up your randomizableArray for selecting a random word; until it's done, you won't have a populated randomizableArray
 
-            console.log(currentItemTags)
+    for (let i = 0; i < typeArray.length; i++) {
+      // creates a variable currentTags to list out the tags for the current entry in the typeArray
 
-            const tagsContained = tagsArray.every(checkTags)
+      let CurrentWordEntry = typeArray[i];
+      let currentTags = CurrentWordEntry.tags;
 
-            function checkTags(wordEntry) {
-                return currentItemTags.includes(wordEntry)
-            }
+      const tagsContained = tagsArray.every(checkTags);
 
-            console.log(tagsContained)
+      function checkTags(tagsArrayItem) {
+        return currentTags.includes(tagsArrayItem);
+      }
 
-            const notPresent = (randomizableArray.includes(currentWord) != true)
-
-            console.log(notPresent)
-
-            if (tagsContained && notPresent) {
-                randomizableArray.push(typeArray[i])
-            } 
-
-        }
-
-        console.log(randomizableArray) 
-
-        console.log(randomizableArray[randomEntry(randomizableArray)].word)
-
-        renderArray.push(randomizableArray[randomEntry(randomizableArray)].word)
-
-        console.log(renderArray) 
-
+      if (tagsContained) {
+        randomizableArray.push(typeArray[i]);
+      }
     }
 
-    let renderArayText = document.createTextNode(renderArray.join(" "))
-    wordDisplay.appendChild(renderArayText)
+    // This should be selecting a random word and pushing it into the renderArray; THIS is where your logic should first check if the word is already IN render array, and if so, get another random word UNTIL it's not already present
 
-} 
+    function putRandomWordInRenderArray() {
+      let randomWordEntry = randomizableArray[randomEntry(randomizableArray)];
 
-shuffleButton.addEventListener('click', renderWords)
+      if (renderArray.includes(randomWordEntry.word)) {
+        console.log(
+          `${randomWordEntry.word} was already in array, pulling another random word!`
+        );
+        putRandomWordInRenderArray();
+      } else {
+        renderArray.push(randomWordEntry.word);
+      }
+    }
 
+    putRandomWordInRenderArray();
+  }
 
+  renderArrayHistory.unshift(renderArray);
+  console.log(renderArrayHistory);
 
+  function displayRenderArray() {
+    if (checkArrays(renderArrayHistory[0], renderArrayHistory[1])) {
+      console.log("Same band name, trying again!");
+      renderArray = [];
+      renderWords();
+    }
 
+    let renderArrayText = document.createTextNode(renderArray.join(" "));
+    wordDisplay.appendChild(renderArrayText);
+  }
 
+  displayRenderArray();
 
+  function checkArrays(a, b) {
+    return JSON.stringify(a) == JSON.stringify(b);
+  }
+}
 
-
-     
+shuffleButton.addEventListener("click", renderWords);
