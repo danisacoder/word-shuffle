@@ -61,9 +61,23 @@ function randomEntry(array) {
   return result;
 }
 
-let tagSelect = document.getElementById("genre");
+function checkChecks() {
+
+  let checkboxArray = document.genre.elements['genre-type'];
+  let checkCount = 0;
+  
+  for (let i=0; i<checkboxArray.length; i++) {
+    // checkCount += ()
+  }
+
+
+}
+
+
+
+
 let tagsArray = [];
-setTags();
+// setTags();
 
 tagSelect.addEventListener("change", function () {
   setTags();
@@ -72,8 +86,13 @@ tagSelect.addEventListener("change", function () {
 
 function setTags() {
   tagsArray = [];
-  tagsArray.push(tagSelect.value);
-  console.log(tagsArray);
+    
+
+    // tagsArray.push(tagSelect.value);
+    console.log(tagsArray);
+
+  }
+
 }
 
 let formatList = document.getElementById("format");
@@ -123,7 +142,7 @@ function setFormat() {
 }
 
 function renderPage() {
-  if (tagSelect.value === "none") {
+  if (tagSelect.checked === false) {
     renderFormat();
   } else {
     renderFormat();

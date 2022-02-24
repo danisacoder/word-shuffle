@@ -11,11 +11,12 @@
     <div id="container">
         <h1>Better Band Name</h1>
         <p>Select your options and roll a new band name!</p>
-        <select name="genre" id="genre">
-            <option value="none">Choose genre</option>
-            <option value="indie">Indie</option>
-            <option value="metal">Metal</option>
-        </select>
+            <form name="genre">
+                <input type="checkbox" id="indie" name="genre-type" value="indie">
+                <label for="genre1">Indie</label>
+                <input type="checkbox" id="metal" name="genre-type" value="metal">
+                <label for="genre2">Metal</label>
+            </form>
         <select name="format" id="format">
             <option value="0">Choose name format</option>
             <option value="1">Adjective Noun</option>
