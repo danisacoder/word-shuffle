@@ -69,14 +69,18 @@ let tagForm = document
     checkChecks(event.target);
   });
 
+let allTagCheckboxes = document.querySelectorAll("input[type=checkbox]");
+
+console.log(allTagCheckboxes);
+
 function checkChecks(element) {
   if (element.type === "checkbox" && element.checked) {
     console.log("A checkbox is checked!");
-    console.log(element.id);
-    tagsArray.push(element.id);
+    console.log(element.value);
+    tagsArray.push(element.value);
     console.log(tagsArray);
   } else if (element.type === "checkbox") {
-    tagsArray = removeArrayItem(element.id, tagsArray);
+    tagsArray = removeArrayItem(element.value, tagsArray);
     console.log("A checkbox got unchecked!");
     console.log(tagsArray);
   }
@@ -150,7 +154,7 @@ function setFormat() {
 }
 
 function renderPage() {
-  if (tagSelect.checked === false) {
+  if (allTagCheckboxes.checked === false) {
     renderFormat();
   } else {
     renderFormat();
