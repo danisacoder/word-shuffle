@@ -61,39 +61,47 @@ function randomEntry(array) {
   return result;
 }
 
-function checkChecks() {
+let tagsArray = [];
 
-  let checkboxArray = document.genre.elements['genre-type'];
-  let checkCount = 0;
-  
-  for (let i=0; i<checkboxArray.length; i++) {
-    // checkCount += ()
+let tagForm = document
+  .getElementById("genre")
+  .addEventListener("click", function (event) {
+    checkChecks(event.target);
+  });
+
+function checkChecks(element) {
+  if (element.type === "checkbox" && element.checked) {
+    console.log("A checkbox is checked!");
+    console.log(element.id);
+    tagsArray.push(element.id);
+    console.log(tagsArray);
+  } else if (element.type === "checkbox") {
+    tagsArray = removeArrayItem(element.id, tagsArray);
+    console.log("A checkbox got unchecked!");
+    console.log(tagsArray);
   }
-
-
 }
 
+function removeArrayItem(item, array) {
+  const result = array.filter(filterItem);
 
+  function filterItem(entry) {
+    return entry != item;
+  }
 
+  return result;
+}
 
-let tagsArray = [];
 // setTags();
 
-tagSelect.addEventListener("change", function () {
-  setTags();
-  renderPage();
-});
+// function setTags() {
+//   tagsArray = [];
 
-function setTags() {
-  tagsArray = [];
-    
+//   // tagsArray.push(tagSelect.value);
+//   console.log(tagsArray);
 
-    // tagsArray.push(tagSelect.value);
-    console.log(tagsArray);
-
-  }
-
-}
+//   //   }
+// }
 
 let formatList = document.getElementById("format");
 
