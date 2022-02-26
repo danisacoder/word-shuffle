@@ -66,14 +66,23 @@ let tagsArray = [];
 let tagForm = document
   .getElementById("genre")
   .addEventListener("click", function (event) {
-    checkChecks(event.target);
+    checkStatus(event.target);
   });
 
 let allTagCheckboxes = document.querySelectorAll("input[type=checkbox]");
 
 console.log(allTagCheckboxes);
 
-function checkChecks(element) {
+// let noBoxesChecked = allTagCheckboxes.every(noChecks);
+
+// function noChecks(item) {
+//   console.log((item.checked = false));
+//   return (item.checked = false);
+// }
+
+// console.log(noBoxesChecked);
+
+function checkStatus(element) {
   if (element.type === "checkbox" && element.checked) {
     console.log("A checkbox is checked!");
     console.log(element.value);
@@ -154,7 +163,8 @@ function setFormat() {
 }
 
 function renderPage() {
-  if (allTagCheckboxes.checked === false) {
+  if (noBoxesChecked) {
+    console.log("No genres!");
     renderFormat();
   } else {
     renderFormat();

@@ -3,6 +3,8 @@
 3. When genre is selected, re-render the page text based on the format array
    a.
 
-
-
 https://stackoverflow.com/questions/13376471/form-if-no-checkbox-is-selected-alert-else-submit-javascript
+
+Okay try this:
+
+https://www.positronx.io/check-if-javascript-checkboxes-checked/
