@@ -49,6 +49,336 @@ let wordBank = [
     type: "noun",
     tags: ["metal", "indie", "folk", "rock"],
   },
+  {
+    word: "Misty",
+    type: "adjective",
+    tags: ["indie"],
+  },
+  {
+    word: "Heady",
+    type: "adjective",
+    tags: ["indie"],
+  }, 
+  {
+    word: "Wilder",
+    type: "adjective",
+    tags: ["indie"],
+  },
+  {
+    word: "Restless",
+    type: "adjective",
+    tags: ["indie"],
+  },
+  {
+    word: "Frantic",
+    type: "adjective",
+    tags: ["indie"],
+  },
+  {
+    word: "Tiger",
+    type: "adjective",
+    tags: ["indie"],
+  },
+  {
+    word: "Acrylic",
+    type: "adjective",
+    tags: ["indie"],
+  },
+  {
+    word: "Charcoal",
+    type: "adjective",
+    tags: ["indie"],
+  },
+  {
+    word: "Paper",
+    type: "adjective",
+    tags: ["indie"],
+  },
+  {
+    word: "Moonbeam",
+    type: "adjective",
+    tags: ["indie"],
+  },
+  {
+    word: "Breathless",
+    type: "adjective",
+    tags: ["indie"],
+  },
+  {
+    word: "Elysium",
+    type: "adjective",
+    tags: ["indie"],
+  },
+  {
+    word: "Tin",
+    type: "adjective",
+    tags: ["indie"],
+  },
+  {
+    word: "Foolish",
+    type: "adjective",
+    tags: ["indie"],
+  },
+  {
+    word: "Supraliminal",
+    type: "adjective",
+    tags: ["indie"],
+  },
+  {
+    word: "Lucid",
+    type: "adjective",
+    tags: ["indie"],
+  },
+  {
+    word: "Pale",
+    type: "adjective",
+    tags: ["indie"],
+  },
+  {
+    word: "Parade",
+    type: "noun",
+    tags: ["indie"],
+  },
+  {
+    word: "Apparitions",
+    type: "noun",
+    tags: ["indie"],
+  },
+  {
+    word: "Tides",
+    type: "noun",
+    tags: ["indie"],
+  },
+  {
+    word: "Munitions",
+    type: "noun",
+    tags: ["indie"],
+  },
+  {
+    word: "Spiral",
+    type: "noun",
+    tags: ["indie"],
+  },
+  {
+    word: "Lodge",
+    type: "noun",
+    tags: ["indie"],
+  },
+  {
+    word: "Haze",
+    type: "noun",
+    tags: ["indie"],
+  },
+  {
+    word: "Dust",
+    type: "noun",
+    tags: ["indie"],
+  },
+  {
+    word: "Maiden",
+    type: "noun",
+    tags: ["indie"],
+  },
+  {
+    word: "Fiend",
+    type: "noun",
+    tags: ["indie"],
+  },
+  {
+    word: "Darling",
+    type: "noun",
+    tags: ["indie"],
+  },
+  {
+    word: "Darling",
+    type: "adjective",
+    tags: ["indie"],
+  },
+  {
+    word: "Sky",
+    type: "noun",
+    tags: ["indie"],
+  },
+  {
+    word: "Wolf",
+    type: "noun",
+    tags: ["indie"],
+  },
+  {
+    word: "Machines",
+    type: "noun",
+    tags: ["indie"],
+  },
+  {
+    word: "Gold",
+    type: "noun",
+    tags: ["indie"],
+  },
+  {
+    word: "Dust",
+    type: "noun",
+    tags: ["indie"],
+  },
+  {
+    word: "Heart",
+    type: "noun",
+    tags: ["indie"],
+  },
+  {
+    word: "Emperor",
+    type: "noun",
+    tags: ["indie"],
+  },
+  {
+    word: "Beast",
+    type: "noun",
+    tags: ["indie"],
+  },
+  {
+    word: "Savage",
+    type: "noun",
+    tags: ["indie"],
+  },
+  {
+    word: "Penitent",
+    type: "adjective",
+    tags: ["indie"],
+  },
+  {
+    word: "Englishmen",
+    type: "noun",
+    tags: ["indie"],
+  },
+  {
+    word: "Things",
+    type: "noun",
+    tags: ["indie"],
+  },
+  {
+    word: "Elegy",
+    type: "noun",
+    tags: ["indie"],
+  },
+  {
+    word: "Hymnal",
+    type: "noun",
+    tags: ["indie"],
+  },
+  {
+    word: "Lament",
+    type: "noun",
+    tags: ["indie"],
+  },
+  {
+    word: "Thunder",
+    type: "noun",
+    tags: ["indie"],
+  },
+  {
+    word: "Stray",
+    type: "noun",
+    tags: ["indie"],
+  },
+  {
+    word: "Party",
+    type: "noun",
+    tags: ["indie"],
+  },  
+  {
+  word: "Advent",
+  type: "noun",
+  tags: ["indie"],
+  },  
+  {
+  word: "Days",
+  type: "noun",
+  tags: ["indie"],
+  },  
+  {
+  word: "Apostle",
+  type: "noun",
+  tags: ["indie"],
+  },  
+  {
+  word: "Baptism",
+  type: "noun",
+  tags: ["indie"],
+  },  
+  {
+  word: "Covenant",
+  type: "noun",
+  tags: ["indie"],
+  },
+  {
+  word: "Convent",
+  type: "noun",
+  tags: ["indie"],
+  },
+  {
+    word: "Devotional",
+    type: "noun",
+    tags: ["indie"],
+  },
+  {
+    word: "Disciple",
+    type: "noun",
+    tags: ["indie"],
+  },
+  {
+    word: "Tree",
+    type: "noun",
+    tags: ["indie"],
+  },
+  {
+    word: "Idol",
+    type: "noun",
+    tags: ["indie"],
+  },
+  {
+    word: "Spirit",
+    type: "noun",
+    tags: ["indie"],
+  },
+  {
+    word: "Wine",
+    type: "noun",
+    tags: ["indie"],
+  },
+  {
+    word: "Rapture",
+    type: "noun",
+    tags: ["indie"],
+  },
+  {
+    word: "Redemption",
+    type: "noun",
+    tags: ["indie"],
+  },
+  {
+    word: "Reform",
+    type: "noun",
+    tags: ["indie"],
+  },
+  {
+    word: "Sacrament",
+    type: "noun",
+    tags: ["indie"],
+  },
+  {
+    word: "Sermon",
+    type: "noun",
+    tags: ["indie"],
+  },
+  {
+    word: "Perdition",
+    type: "noun",
+    tags: ["indie"],
+  },
+  {
+    word: "Savior",
+    type: "noun",
+    tags: ["indie"],
+  },  
 ];
 
 let word1 = document.getElementById("word-1");
