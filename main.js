@@ -1,3 +1,5 @@
+// This is my list of words, which can be filtered by their tag. The idea of switching genres is why I added the tag section, but most are only listed as indie for now
+
 let wordBank = [
   {
     word: "The",
@@ -186,7 +188,7 @@ let wordBank = [
   },
   {
     word: "Darling",
-    type: "noun",
+    type: "adjective",
     tags: ["indie"],
   },
   {
@@ -379,19 +381,47 @@ let wordBank = [
     type: "noun",
     tags: ["indie"],
   },  
+  {
+    word: "Dream",
+    type: "noun",
+    tags: ["indie"],
+  },  
+  {
+  word: "Limbic",
+  type: "adjective",
+  tags: ["indie"],
+  },
+  {
+    word: "Apollonian",
+    type: "adjective",
+    tags: ["indie"],
+  },
+  {
+    word: "Archictect",
+    type: "noun",
+    tags: ["indie"],
+  },
 ];
+
+// Defining page elements so I can update them with JS later
 
 let word1 = document.getElementById("word-1");
 let word2 = document.getElementById("word-2");
 let shuffleButton = document.getElementById("shuffle-button");
 let wordDisplay = document.getElementById("word-display");
 
+// Generic random array entry function
+
 function randomEntry(array) {
   let result = Math.floor(Math.random() * array.length);
   return result;
 }
 
+// I guess the idea is, you can generate band names that work for multiple genres at once? Can't remember. So this array stores the currently selected tags from the HTML page
+
 let tagsArray = [];
+
+// If someone clicks the genre section of the page, run the checkStatus function to verify that your tag array reflects the current page selection
 
 let tagForm = document
   .getElementById("genre")
@@ -399,18 +429,13 @@ let tagForm = document
     checkStatus(event.target);
   });
 
+// Variable for any checkbox on the page
+
 let allTagCheckboxes = document.querySelectorAll("input[type=checkbox]");
 
 console.log(allTagCheckboxes);
 
-// let noBoxesChecked = allTagCheckboxes.every(noChecks);
-
-// function noChecks(item) {
-//   console.log((item.checked = false));
-//   return (item.checked = false);
-// }
-
-// console.log(noBoxesChecked);
+// checkStatus function, which triggers upon detection of click on that page element; pushes the value of the clicked element into the tagsArray, and removes the value of any unchecked element from the same tagsArray (because that item is unchecked); this makes sure the tagsArray refelcts the checkboxes selected and deselected on the page
 
 function checkStatus(element) {
   if (element.type === "checkbox" && element.checked) {
@@ -425,6 +450,8 @@ function checkStatus(element) {
   }
 }
 
+// Generic array item removal function for use in checkStatus function above
+
 function removeArrayItem(item, array) {
   const result = array.filter(filterItem);
 
@@ -434,17 +461,6 @@ function removeArrayItem(item, array) {
 
   return result;
 }
-
-// setTags();
-
-// function setTags() {
-//   tagsArray = [];
-
-//   // tagsArray.push(tagSelect.value);
-//   console.log(tagsArray);
-
-//   //   }
-// }
 
 let formatList = document.getElementById("format");
 
@@ -546,9 +562,13 @@ function filterType(wordType) {
   return filteredArray;
 }
 
-// This does a lot of heavy lifting: filtering down the total wordBank to appropriate words for each word type in the format, filtering down again by included tags, randomly selecting one of the remaining words, pushing that word into an array, and rendering the final array once all of the words have been picked
+
+
+// This will store a history of the results to compare against new results
 
 let renderArrayHistory = [];
+
+// This does a lot of heavy lifting: filtering down the total wordBank to appropriate words for each word type in the format, filtering down again by included tags, randomly selecting one of the remaining words, pushing that word into an array, and rendering the final array once all of the words have been picked
 
 function renderWords() {
   console.log("Rendering words!");
@@ -571,6 +591,7 @@ function renderWords() {
     // this whole function sets up your randomizableArray for selecting a random word; until it's done, you won't have a populated randomizableArray
 
     for (let i = 0; i < typeArray.length; i++) {
+
       // creates a variable currentTags to list out the tags for the current entry in the typeArray
 
       let CurrentWordEntry = typeArray[i];
@@ -625,5 +646,7 @@ function renderWords() {
     return JSON.stringify(a) == JSON.stringify(b);
   }
 }
+
+// If you click the shuffle button, the renderWords function triggers
 
 shuffleButton.addEventListener("click", renderWords);
